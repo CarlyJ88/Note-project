@@ -13,7 +13,7 @@
 
   NoteList.prototype.addNote = function(noteText) {
     var note = new Note(noteText);
-    this.notes.push(note);
+    this.add(note);
   };
 
   exports.NoteList = NoteList;
