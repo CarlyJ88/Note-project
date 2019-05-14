@@ -13,6 +13,14 @@
 
     assert.isArrayEqual(noteList.showListOfNotes(), [note]);
   });
+
+  runTest('creates and adds a single note model', function createAndAddNoteList() {
+    var noteList = new NoteList();
+
+    noteList.addNote("String!");
+
+    assert.isArrayEqual(noteList.showListOfNotes(), [new Note('String!')])
+  })
 })(this);
 
 // Code is wrapped in the module pattern.
