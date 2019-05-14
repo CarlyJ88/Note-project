@@ -23,6 +23,7 @@ var assert = {
     }
     catch(error){
       result.innerHTML += message +': Falied with error: ' + error;
+      console.error(error);
     } finally{
       result.innerHTML+='<br>';
     }

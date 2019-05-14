@@ -2,7 +2,16 @@
   runTest('Initialize Note with empty Array', function initialseNoteListWithEmptyArray() {
     var noteList = new NoteList();
 
-    assert.isArrayEqual(noteList.createArray(), ['a']);
+    assert.isArrayEqual(noteList.showListOfNotes(), []);
+  });
+
+  runTest('Add a Note to the Array', function addNoteToNoteList() {
+
+    var note = new Note("My favourite language is Javascript");
+    var noteList = new NoteList();
+    noteList.add(note);
+
+    assert.isArrayEqual(noteList.showListOfNotes(), [note]);
   });
 })(this);
 
