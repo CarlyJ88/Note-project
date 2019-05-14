@@ -1,28 +1,24 @@
-var assert = {
-  isTrue: function(assertionToCheck) {
-    if (!assertionToCheck) {
-      throw new Error("Assertion failed: " + assertionToCheck + " is not truthy");
-    }
-  }
-};
+(function(exports) {
+  function NoteShowsMessage() {
+    var note = new Note('My favourite language is Javascript');
+    
+    assert.isTrue(note.returnText() === "My favourite language is Javascript");
+  };
+  
+var result = document.getElementById("result");
 
-function noteShowsMessage() {
-  var note = new Note();
-  assert.isTrue(note.returnText() === "My favourite language is Javascript");
-};
+try {
+  NoteShowsMessage();
 
-// var result = document.getElementById("result");
+  result.innerHTML += 'Yay!!!!!!!!!!!!! You did it! :D <br>';
+}
+catch (error) {
 
-// try {
-//   noteShowsMessage();
+  result.innerHTML += error + '<br>';
+  console.error(error);
+}
+})(this);
 
-//   result.innerHTML = 'Yay!!!!!!!!!!!!! You did it! :D';
-// }
-// catch (error) {
-
-//   result.innerHTML = error;
-//   console.error(error);
-// }
 
 // Uses the constructor and prototype pattern to define a note model object that can be instantiated.
 
@@ -32,14 +28,3 @@ function noteShowsMessage() {
 // Has a method that will return the note text.
 
 // Code is wrapped in the module pattern.
-
-// (function(exports) {
-//   var EXCLAMATION_MARK_COUNT = 5
-
-//   function exclaim(string) {
-//     return string + "!".repeat(EXCLAMATION_MARK_COUNT);
-//   };
-
-//   exports.exclaim = exclaim;
-// })(this);
-
