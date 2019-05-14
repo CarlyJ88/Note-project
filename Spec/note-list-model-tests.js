@@ -1,22 +1,9 @@
-
-
-(function(exports) {
-  function initialseNoteListWithEmptyArray() {
+(function (exports) {
+  runTest('Initialize Note with empty Array', function initialseNoteListWithEmptyArray() {
     var noteList = new NoteList();
-  };
 
-var result = document.getElementById("result");
-
-try {
-  initialseNoteListWithEmptyArray();
-
-  result.innerHTML += 'Yay!!!!!!!!!!!!! You did it! :D <br>';
-}
-catch (error) {
-
-  result.innerHTML += error + '<br>';
-  console.error(error);
-}
+    assert.isArrayEqual(noteList.createArray(), ['a']);
+  });
 })(this);
 
 // Code is wrapped in the module pattern.

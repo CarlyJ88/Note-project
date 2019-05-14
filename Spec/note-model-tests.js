@@ -1,22 +1,10 @@
 (function(exports) {
+  runTest('Initialise text in constructor', 
   function NoteShowsMessage() {
     var note = new Note('My favourite language is Javascript');
     
     assert.isTrue(note.returnText() === "My favourite language is Javascript");
-  };
-  
-var result = document.getElementById("result");
-
-try {
-  NoteShowsMessage();
-
-  result.innerHTML += 'Yay!!!!!!!!!!!!! You did it! :D <br>';
-}
-catch (error) {
-
-  result.innerHTML += error + '<br>';
-  console.error(error);
-}
+  });
 })(this);
 
 
