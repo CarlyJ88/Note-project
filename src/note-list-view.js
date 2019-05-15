@@ -8,7 +8,12 @@ function NoteListView(noteList) {
 }
 // add a method (prototype):
 NoteListView.prototype.returnHTMLString = function() {
-  return '';
+  var notesArray = this.noteList.showListOfNotes()
+  if (notesArray === undefined || notesArray.length === 0) {
+    return ''
+  }
+  var note = notesArray[0].returnText()
+  return '<ul><li><div>' + note + '</div></li></ul>';
 }
 // - returns a string of HTML that represents the noteList
 // handles array of notes even with no notes inside (write tests for each case)
