@@ -8,7 +8,7 @@
   };
 
   Note.prototype.toString = function() {
-    return 'text: ' + this.text;
+    return this.text;
   }
   
   exports.Note = Note;
