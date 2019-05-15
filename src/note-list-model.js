@@ -7,8 +7,8 @@
     return this.notes;
   };
 
-  NoteList.prototype.add = function(heeeellloooo) {
-    this.notes.push(heeeellloooo);
+  NoteList.prototype.add = function(note) {
+    this.notes.push(note);
   };
 
   NoteList.prototype.addNote = function(noteText) {
