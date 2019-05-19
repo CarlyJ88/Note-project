@@ -6,9 +6,12 @@
   "dependencies": {
     "http-server": "^0.11.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node_modules/http-server/bin/http-server"
   },
   "repository": {
     "type": "git",

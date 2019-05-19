@@ -1,41 +1,17 @@
-  runTest('add a note', function addsANote() {
+runTest('controller can be instantiated', function instantiateController() {
 
-    function NoteListDouble() {
-      this.notes = [];
-    };
-    
-    NoteListDouble.prototype.showListOfNotes = function() {
-      return this.notes;
-    };
+  var noteList = new NoteList()
+  var controller = new NoteController(noteList)
 
-    function NoteListViewDouble(noteList) {
-      this.noteList = noteList;
-    }
+});
 
-    NoteListViewDouble.prototype.returnHTMLString = function () {
-      var notesArray = this.noteList.showListOfNotes()
-      console.log(notesArray);
-      if (notesArray === undefined || notesArray.length === 0) {
-        return ''
-      }
+runTest('gets HTML from noteListView', function getHTML() {
 
-      return '<ul><li><div>' + notesArray.join('</div></li><li><div>') + '</div></li></ul>'
-    }
+  var noteList = new NoteList()
+  var controller = new NoteController(noteList)
+  controller.addNote('My favourite drink is: rum')
+  controller.getHTML()
+  document.getElementById('app').innerHTML
 
-    var note = new Note("My favourite drink is: rum")
-    noteListView = new NoteListViewDouble(note)
-    noteList = new NoteListDouble
-    controller = new NoteController(noteList)
-    controller.add(note)
-
-    console.log(noteList.showListOfNotes())
-
-    assert.isArrayEqual(noteList.showListOfNotes(), 'My favourite drink is: rum');
-
-  });
-
-// spec:
-// controller(noteList)
-// + note
-// controller.noteListView(noteList)
-
+  assert.isArrayEqual(document.getElementById('app').innerHTML, '<ul><li><div>My favourite drink is: rum</div></li></ul>')
+})

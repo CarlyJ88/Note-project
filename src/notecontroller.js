@@ -1,16 +1,20 @@
-(function(exports) {
+(function (exports) {
 
   function NoteController(noteList) {
     this.noteList = noteList
+    this.noteListView = new NoteListView(this.noteList)
   }
-  
-  NoteController.prototype.add = function(note) {
-    this.noteList.notes.push(note);
+
+  NoteController.prototype.addNote = function (note) {
+    this.noteList.addNote(note)
   }
-  
+
+  NoteController.prototype.getHTML = function () {
+    document.getElementById('app').innerHTML = this.noteListView.returnHTMLString();
+  }
+
   exports.NoteController = NoteController
-  
-  
-  })(this)
-  
-// console.log(document.getElementById('app').innerHTML = "howdy");
+
+
+})(this)
+
